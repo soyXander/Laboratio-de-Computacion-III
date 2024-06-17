@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 02</title>
+</head>
+<body>
+    <p id="texto">Hola mundo!</p>
+    <input id="nuevo-texto" type="text">
+    <button onclick="modificarTexto()">Enviar</button>
+
+    <script>
+        function modificarTexto() {
+            const $ = (elem) => document.getElementById(elem)
+            const p = $('texto');
+            const nuevoTexto = $('nuevo-texto').value;
+            if(nuevoTexto.length > 0) {
+                p.innerHTML = nuevoTexto;
+            }
+            else {
+                p.innerHTML = 'Hola mundo!';
+            }
+        }
+    </script>
+</body>
+</html>

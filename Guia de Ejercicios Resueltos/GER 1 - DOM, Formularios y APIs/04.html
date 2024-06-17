@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 04</title>
+</head>
+<body>
+    <h1>Calculadora de Area y Perimetro de un Rectangulo</h1>
+    <p>Base</p>
+    <input id="base" type="number">
+
+    <p>Altura</p>
+    <input id="altura" type="number"><br>
+
+    <button onclick="calcularPerimetro()">Calcular Perimetro</button>
+    <button onclick="calcularSuperficie()">Calcular Area</button>
+
+    <script>
+        const $ = (elem) => document.getElementById(elem)
+
+        function calcularPerimetro() {
+            const base = parseFloat($('base').value)
+            const altura = parseFloat($('altura').value)
+            const resultado = 2 * (base + altura)
+
+            if(base > 0 && altura > 0) {
+                alert(`Perimetro: ${resultado}`)
+            } else {
+                alert('Base y/o altura no pueden estar vacio o ser negativos')
+            }
+        }
+
+        function calcularSuperficie() {
+            const base = parseFloat($('base').value)
+            const altura = parseFloat($('altura').value)
+            const resultado = base * altura
+
+            if(base > 0 && altura > 0) {
+                alert(`Superficie: ${resultado}`)
+            } else {
+                alert('Base y/o altura no pueden estar vacio o ser negativos')
+            }
+        }
+    </script>
+</body>
+</html>

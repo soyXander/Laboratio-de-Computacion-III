@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 09</title>
+</head>
+<body>
+    <h1>Personas</h1>
+
+    <ul id="personas">
+    </ul>
+    
+    <script>
+        const $ = (elem) => document.getElementById(elem)
+
+        const personas = [
+            { nombre: 'Pedro', edad: 20 },
+            { nombre: 'Juan', edad: 30 },
+            { nombre: 'Maria', edad: 40 },
+            { nombre: 'Luis', edad: 50 },
+            { nombre: 'Ana', edad: 60 }
+        ]
+
+        personas.forEach(persona => {
+            const li = document.createElement('li')
+            li.innerHTML = `${persona.nombre} - ${persona.edad}`
+            $('personas').appendChild(li)
+        })
+    </script>
+</body>
+</html>

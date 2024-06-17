@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 11</title>
+</head>
+<body>
+    <h1>Personas</h1>
+
+    <ul id="lista">
+    </ul>
+    
+    <script>
+        const $ = (id) => document.getElementById(id)
+        const lista = $('lista')
+        const apiURL = 'https://jsonplaceholder.typicode.com/users'
+
+        const personas = async () => {
+            const res = await fetch(apiURL);
+            if(res.ok) {
+                const data = await res.json()
+                data.forEach(persona => {
+                    const item = document.createElement('li')
+                    item.innerHTML = `${persona.id}) ${persona.name} - ${persona.email}`
+                    lista.appendChild(item)
+                })
+            }
+            else {
+                console.log("Error")
+            }
+        }
+        personas()
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 08</title>
+</head>
+<body>
+    <form id="formulario">
+        <input id="nombre" type="text">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul id="personas"></ul>
+    
+    <script>
+        const $ = (elem) => document.getElementById(elem)
+        const personas = []
+        const formulario = $('formulario')
+
+        formulario.addEventListener('submit', (event) => {
+            event.preventDefault()
+            const nombre = document.getElementById('nombre').value
+            if(nombre.length > 0) {
+                const item = document.createElement('li')
+                item.innerHTML = nombre
+                $('personas').appendChild(item)
+                
+                const borrar = document.createElement('button')
+                borrar.innerHTML = 'X'
+                item.appendChild(borrar)
+                borrar.addEventListener('click', () => {
+                    item.remove()
+                })
+                formulario.reset()
+            }
+            else {
+                alert('Por favor, introduce un nombre')
+            }
+        })
+    </script>
+</body>
+</html>

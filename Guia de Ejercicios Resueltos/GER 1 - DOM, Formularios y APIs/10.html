@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GER 1 - Ejercicio 10</title>
+</head>
+<body>
+    <form id="formulario">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text"><br>
+
+        <label for="apellidos">Apellidos</label>
+        <input id="apellidos" type="text"><br>
+
+        <label for="edad">Edad</label>
+        <input id="edad" type="number"><br>
+
+        <button type="submit">Enviar</button>
+        <p id="msg">&nbsp;</p>
+    </form>
+    <h2>Listado de Personas</h2>
+    <ul id="personas">
+    </ul>
+    
+    <script>
+        const $ = (elem) => document.getElementById(elem)
+        const formulario = $('formulario')
+        const nombre = $('nombre')
+        const apellidos = $('apellidos')
+        const edad = $('edad')
+
+        formulario.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const msg = $('msg')
+            const msgTimeout = () => {
+                setTimeout(() => {
+                    msg.innerHTML = '&nbsp;'
+                }, 3000)
+            }
+            msg.style.color = 'red'
+            if(!nombre.value) {
+                msg.innerHTML = 'Error: Introduzca un nombre'
+                msgTimeout()
+            }
+            else if(!apellidos.value) {
+                msg.innerHTML = 'Error: Introduzca un apellido'
+                msgTimeout()
+            }
+            else if(edad.value < 18) {
+                msg.innerHTML = 'Error: Introduzca una edad mayor o igual a 18'
+                msgTimeout()
+            }
+            else {
+                msg.style.color = 'green'
+                msg.innerHTML = 'Persona agregada con éxito'
+                msgTimeout()
+                const li = document.createElement('li')
+                li.innerHTML = `${apellidos.value}, ${nombre.value} (${edad.value} años)`
+                $('personas').appendChild(li)
+                formulario.reset()
+            }
+        })
+    </script>
+</body>
+</html>
