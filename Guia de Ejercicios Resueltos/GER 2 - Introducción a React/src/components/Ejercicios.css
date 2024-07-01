@@ -1,0 +1,20 @@
+:root{
+  display: flex;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+p {
+  margin: 0;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
