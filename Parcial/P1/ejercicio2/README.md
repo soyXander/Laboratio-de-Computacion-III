@@ -1,1 +1,1 @@
-![Ejercicio 2](/ejercicio2.png)
+![Ejercicio 2](ejercicio2.png)
